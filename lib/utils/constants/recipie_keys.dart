@@ -4,6 +4,8 @@ const String RECIPE_NAME = 'recipeName';
 
 const String RECIPE_DESCRIPTION = 'recipeDescription';
 
+const String RECIPE_INGREDENTS = 'recipeIngredients';
+
 const String RECIPE_CREATION_TIME = 'recipeCreationTime';
 
 const String RECIPE_IMAGE = 'recipeImage';
