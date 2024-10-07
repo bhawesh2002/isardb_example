@@ -27,7 +27,8 @@ class Recipe {
   Recipe(
       {required this.name,
       required this.description,
-      required this.ingredients})
+      required this.ingredients,
+      this.imgPath})
       : createdAt = DateTime.now();
 }
 
