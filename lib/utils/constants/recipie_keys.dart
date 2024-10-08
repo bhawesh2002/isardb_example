@@ -9,3 +9,5 @@ const String RECIPE_INGREDENTS = 'recipeIngredients';
 const String RECIPE_CREATION_TIME = 'recipeCreationTime';
 
 const String RECIPE_IMAGE = 'recipeImage';
+
+const String UNIQUE_ID = 'uniqueId';

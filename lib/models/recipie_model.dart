@@ -1,6 +1,7 @@
 import 'package:isar/isar.dart';
 import 'package:isar_example/utils/constants/ingredient_keys.dart';
 import 'package:isar_example/utils/constants/recipie_keys.dart';
+import 'package:uuid/uuid.dart';
 
 part 'recipie_model.g.dart';
 
@@ -24,12 +25,16 @@ class Recipe {
   @Name(RECIPE_CREATION_TIME)
   final DateTime createdAt;
 
+  @Name(UNIQUE_ID)
+  final String uniqueId;
+
   Recipe(
       {required this.name,
       required this.description,
       required this.ingredients,
       this.imgPath})
-      : createdAt = DateTime.now();
+      : createdAt = DateTime.now(),
+        uniqueId = const Uuid().v4();
 }
 
 @embedded
