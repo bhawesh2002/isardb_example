@@ -30,6 +30,10 @@ dependencies:
   #for retrieving path of common directories
   path_provider: ^2.1.4
 
+  #for network requests
+  dio: ^5.7.0
+
+
 #dev_dependencies are used for packages that are only used in development
 dev_dependencies:
   flutter_test:
