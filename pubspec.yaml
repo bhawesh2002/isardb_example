@@ -32,6 +32,9 @@ dependencies:
   #for network requests
   dio: ^5.7.0
 
+  #for simple key-value persistant local storage
+  shared_preferences: ^2.3.2
+
 
 #dev_dependencies are used for packages that are only used in development
 dev_dependencies:
