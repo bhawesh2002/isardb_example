@@ -7,15 +7,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// `ThemeMode` that the app is using
 ///
 /// Initial `state` will be ThemeMode.system
-///
-/// **_init():** This function will get the `THEME_MODE` from SharedPreferences `_prefs`
-///           and update the `state` based on index of the enum `ThemeMode`.
-///
-/// if the `THEME_MODE` is null then `state` will use system `ThemeMode`
-///           and use `setInt` to store the index of `ThemeMode.system`
-///
-/// **changeTheme():** - This function will take `updatedThemeMode` and change the
-///                 `state` and update the `_prefs`.
+/// the _init() function updates the state based on the value stored
+/// in _prefs. If no value is stored ThemeMode.system is used.
+
 class ThemeNotifier extends StateNotifier<ThemeMode> {
   ThemeNotifier() : super(ThemeMode.system) {
     _init();
@@ -33,6 +27,10 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
     debugPrint('CurrentTheme: ${state.toString()}');
   }
 
+  /// Updates the `state` base on provided `updatedThemeMode`
+  /// 
+  /// If the `updatedThemeMode` and existing ThemeMode i.e `state` are equal 
+  /// no changes are made
   void changeTheme(ThemeMode updatedThemeMode) async {
     if (updatedThemeMode == state) {
       debugPrint('changeTheme(): No Changes');
