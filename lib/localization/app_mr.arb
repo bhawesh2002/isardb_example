@@ -1,0 +1,11 @@
+{
+  "@@locale": "mr",
+  "settings": "सेटिंग्ज",
+  "@settings": {
+    "description": "सेटिंग्ज"
+  },
+  "systemTheme": "सिस्टम थीम",
+  "@systemTheme": {
+    "description": "सिस्टम थीम"
+  }
+}

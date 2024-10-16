@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "settings": "Settings",
+  "@settings": {
+    "description": "The String for the Settings"
+  },
+  "systemTheme": "System Theme",
+  "@systemTheme": {
+    "description": "The string for the System Theme"
+  }
+}
