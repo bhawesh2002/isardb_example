@@ -1,5 +1,9 @@
 {
   "@@locale": "mr",
+  "title": "आवडती व्यंजने",
+  "@title": {
+    "description": "अॅप्लिकेशनचे शीर्षक"
+  },
   "settings": "सेटिंग्ज",
   "@settings": {
     "description": "सेटिंग्ज"
@@ -7,5 +11,17 @@
   "systemTheme": "सिस्टम थीम",
   "@systemTheme": {
     "description": "सिस्टम थीम"
+  },
+  "lightTheme": "लाइट थीम",
+  "@lightTheme": {
+    "description": "लाइट थीम"
+  },
+  "darkTheme": "डार्क थीम",
+  "@darkTheme": {
+    "description": "डार्क थीम"
+  },
+  "ingredients": "साहित्य",
+  "@ingredients": {
+    "description": "साहित्य"
   }
 }

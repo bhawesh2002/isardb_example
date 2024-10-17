@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
+  "title": "Recipies",
+  "@title": {
+    "description": "The title of the application"
+  },
   "settings": "Settings",
   "@settings": {
     "description": "The String for the Settings"
@@ -7,5 +11,17 @@
   "systemTheme": "System Theme",
   "@systemTheme": {
     "description": "The string for the System Theme"
+  },
+  "lightTheme": "Light Theme",
+  "@lightTheme": {
+    "description": "The string for the Light Theme"
+  },
+  "darkTheme": "Dark Theme",
+  "@darkTheme": {
+    "description": "The string for the Dark Theme"
+  },
+  "ingredients": "Ingredients",
+  "@ingredients": {
+    "description": "The string for the Ingredients"
   }
 }
