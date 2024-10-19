@@ -1,0 +1,27 @@
+{
+    "@@locale": "fr",
+    "title": "Recettes",
+    "@title": {
+        "description": "Le titre de l'application"
+    },
+    "settings": "Paramètres",
+    "@settings": {
+        "description": "La chaîne pour les paramètres"
+    },
+    "systemTheme": "Thème du système",
+    "@systemTheme": {
+        "description": "La chaîne pour le thème du système"
+    },
+    "lightTheme": "Thème clair",
+    "@lightTheme": {
+        "description": "La chaîne pour le thème clair"
+    },
+    "darkTheme": "Thème sombre",
+    "@darkTheme": {
+        "description": "La chaîne pour le thème sombre"
+    },
+    "ingredients": "Ingrédients",
+    "@ingredients": {
+        "description": "La chaîne pour les ingrédients"
+    }
+}
