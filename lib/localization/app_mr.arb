@@ -8,6 +8,14 @@
   "@settings": {
     "description": "सेटिंग्ज"
   },
+  "bookmark": "बुकमार्क",
+  "@bookmark": {
+    "description": "बुकमार्क"
+  },
+  "search": "शोध",
+  "@search": {
+    "description": "शोध"
+  },
   "systemTheme": "सिस्टम थीम",
   "@systemTheme": {
     "description": "सिस्टम थीम"

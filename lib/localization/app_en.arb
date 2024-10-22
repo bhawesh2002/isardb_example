@@ -8,6 +8,14 @@
   "@settings": {
     "description": "The String for the Settings"
   },
+  "bookmark": "Bookmark",
+  "@bookmark": {
+    "description": "The String for the Bookmark"
+  },
+  "search": "Search",
+  "@search": {
+    "description": "The String for the Search"
+  },
   "systemTheme": "System Theme",
   "@systemTheme": {
     "description": "The string for the System Theme"

@@ -8,6 +8,14 @@
     "@settings": {
         "description": "La chaîne pour les paramètres"
     },
+    "bookmark": "Signet",
+    "@bookmark": {
+        "description": "La chaîne pour le signet"
+    },
+    "search": "Rechercher",
+    "@search": {
+        "description": "La chaîne pour la recherche"
+    },
     "systemTheme": "Thème du système",
     "@systemTheme": {
         "description": "La chaîne pour le thème du système"
