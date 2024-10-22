@@ -4,15 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AppIcon extends StatelessWidget {
   final String icon;
   final Color? color;
-  final Size? size;
-  const AppIcon(this.icon, {super.key, this.color, this.size});
+  final double? size;
+  const AppIcon(this.icon, {super.key, this.color, this.size = 24});
 
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       icon,
-      width: size?.width,
-      height: size?.height,
+      width: size,
+      height: size,
       theme: SvgTheme(
         currentColor: color ??
             (Theme.of(context).brightness == Brightness.dark
@@ -20,5 +20,10 @@ class AppIcon extends StatelessWidget {
                 : Colors.black),
       ),
     );
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return icon;
   }
 }
