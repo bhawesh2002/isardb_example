@@ -5,6 +5,7 @@ class AppTheme {
   ThemeData lightTheme() => ThemeData(
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.mystic50,
+      fontFamily: "Montserrat",
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.white,
         selectedItemColor: AppColors.white,
@@ -14,6 +15,7 @@ class AppTheme {
   ThemeData darkTheme() => ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: AppColors.woodsmoke950,
+        fontFamily: "Montserrat",
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: AppColors.black,
           selectedItemColor: AppColors.black,
