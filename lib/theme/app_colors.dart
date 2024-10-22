@@ -8,7 +8,7 @@ class AppColors {
 
   ///Color used for the scaffold background in light theme
   ///Hex: DDE6E6
-  static const Color mystic50 = Color(0xFFDDE6E6);
+  static const Color mystic50 = Color(0xFFE5ECEC);
 
   ///Color used for the scaffold background in dark theme
   ///Hex: 161717
