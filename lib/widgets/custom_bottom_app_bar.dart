@@ -3,6 +3,7 @@ import 'package:isar_example/utils/app_icon.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
   final List<String> navItems;
+  final Function(int index) onTap;
   final double? iconSize;
   final double? bottomAppBarHeight;
   final Color? bottomAppBarColor;
@@ -22,6 +23,7 @@ class CustomBottomAppBar extends StatefulWidget {
     this.borderRadius = 6,
     this.elevation = 6,
     this.shadowColor = Colors.grey,
+    required this.onTap,
   }) : iconSize = 24.0;
 
   @override
@@ -61,16 +63,9 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar>
         ColorTween(begin: const Color(0xff000000), end: const Color(0xffffffff))
             .animate(CurvedAnimation(parent: _controller, curve: Curves.ease));
 
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      renderBox = _navKeys[_currentIndex].currentContext?.findRenderObject()
-          as RenderBox;
-      if (renderBox?.hasSize != null) {
-        print(renderBox?.size.toString());
-      }
-    });
     _controller.forward();
+
+    super.initState();
   }
 
   void move(int index) {
@@ -141,6 +136,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar>
                           child: GestureDetector(
                             onTap: () {
                               move(index);
+                              widget.onTap(_currentIndex);
                             },
                             child: AppIcon(
                               key: _navKeys[index],
