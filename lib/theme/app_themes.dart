@@ -5,10 +5,19 @@ class AppTheme {
   ThemeData lightTheme() => ThemeData(
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.mystic50,
-      colorScheme: const ColorScheme.light());
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: AppColors.white,
+        selectedItemColor: AppColors.white,
+        unselectedItemColor: AppColors.black,
+      ));
 
   ThemeData darkTheme() => ThemeData(
-      brightness: Brightness.dark,
-      scaffoldBackgroundColor: AppColors.woodsmoke950,
-      colorScheme: const ColorScheme.dark());
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: AppColors.woodsmoke950,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: AppColors.black,
+          selectedItemColor: AppColors.black,
+          unselectedItemColor: AppColors.white,
+        ),
+      );
 }
