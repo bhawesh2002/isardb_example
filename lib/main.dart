@@ -19,7 +19,7 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeProvider);
     final locale = ref.watch(localeProvider);
     return MaterialApp(
-      title: 'ISAR DB DEMO',
+      title: 'Vyanjan',
       theme: AppTheme().lightTheme(),
       darkTheme: AppTheme().darkTheme(),
       themeMode: themeMode,
