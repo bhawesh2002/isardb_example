@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:isar_example/theme/theme_provider.dart';
+import 'package:isar_example/utils/app_icons.dart';
+import 'package:isar_example/utils/extensions.dart';
+import 'package:isar_example/widgets/custom_bottom_app_bar.dart';
 
-class Home extends ConsumerWidget {
+class Home extends ConsumerStatefulWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeProvider);
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomeState();
+}
+
+class _HomeState extends ConsumerState<Home> {
+  int currIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<String> strings = [
+      context.locale.title,
+      context.locale.search,
+      context.locale.bookmark,
+      context.locale.settings,
+    ];
     return Scaffold(
-      body: const Center(
-        child: Text("Home Page"),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(themeProvider.notifier).changeTheme(
-              Theme.of(context).brightness == Brightness.dark
-                  ? ThemeMode.light
-                  : ThemeMode.dark);
+      bottomNavigationBar: CustomBottomAppBar(
+        onTap: (index) {
+          setState(() {
+            currIndex = index;
+          });
         },
-        child: Icon(
-            themeMode == ThemeMode.dark ? Icons.toggle_off : Icons.toggle_on),
+        navItems: const [
+          AppIcons.home,
+          AppIcons.search,
+          AppIcons.bookmark,
+          AppIcons.settings,
+        ],
+      ),
+      body: Center(
+        child: Text(
+          strings[currIndex],
+          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
-}
-
-Widget bottomNavigationBar() {
-  //TODO: Complete the code for Bottom Navigation Bar
-  return Container();
 }
