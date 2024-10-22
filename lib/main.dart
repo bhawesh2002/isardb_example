@@ -17,7 +17,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeProvider);
-    final locale = ref.watch(localProvider);
+    final locale = ref.watch(localeProvider);
     return MaterialApp(
       title: 'ISAR DB DEMO',
       theme: AppTheme().lightTheme(),
