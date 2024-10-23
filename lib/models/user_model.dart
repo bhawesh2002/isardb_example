@@ -1,11 +1,6 @@
-import 'package:isar/isar.dart';
-
-part 'user_model.g.dart';
-
-@Collection()
 class User {
-  Id id = Isar.autoIncrement;
+  final String name;
+  final String? email;
 
-  String? name;
-  String? email;
+  User({required this.name, this.email});
 }
