@@ -42,6 +42,11 @@ const RecipeSchema = CollectionSchema(
       id: 4,
       name: r'recipeName',
       type: IsarType.string,
+    ),
+    r'uniqueId': PropertySchema(
+      id: 5,
+      name: r'uniqueId',
+      type: IsarType.string,
     )
   },
   estimateSize: _recipeEstimateSize,
@@ -80,6 +85,7 @@ int _recipeEstimateSize(
     }
   }
   bytesCount += 3 + object.name.length * 3;
+  bytesCount += 3 + object.uniqueId.length * 3;
   return bytesCount;
 }
 
@@ -99,6 +105,7 @@ void _recipeSerialize(
     object.ingredients,
   );
   writer.writeString(offsets[4], object.name);
+  writer.writeString(offsets[5], object.uniqueId);
 }
 
 Recipe _recipeDeserialize(
@@ -109,6 +116,7 @@ Recipe _recipeDeserialize(
 ) {
   final object = Recipe(
     description: reader.readString(offsets[1]),
+    imgPath: reader.readStringOrNull(offsets[2]),
     ingredients: reader.readObjectList<Ingredient>(
           offsets[3],
           IngredientSchema.deserialize,
@@ -119,7 +127,6 @@ Recipe _recipeDeserialize(
     name: reader.readString(offsets[4]),
   );
   object.id = id;
-  object.imgPath = reader.readStringOrNull(offsets[2]);
   return object;
 }
 
@@ -145,6 +152,8 @@ P _recipeDeserializeProp<P>(
           ) ??
           []) as P;
     case 4:
+      return (reader.readString(offset)) as P;
+    case 5:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -833,6 +842,136 @@ extension RecipeQueryFilter on QueryBuilder<Recipe, Recipe, QFilterCondition> {
       ));
     });
   }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'uniqueId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'uniqueId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'uniqueId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'uniqueId',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'uniqueId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'uniqueId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'uniqueId',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'uniqueId',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'uniqueId',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterFilterCondition> uniqueIdIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'uniqueId',
+        value: '',
+      ));
+    });
+  }
 }
 
 extension RecipeQueryObject on QueryBuilder<Recipe, Recipe, QFilterCondition> {
@@ -892,6 +1031,18 @@ extension RecipeQuerySortBy on QueryBuilder<Recipe, Recipe, QSortBy> {
   QueryBuilder<Recipe, Recipe, QAfterSortBy> sortByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'recipeName', Sort.desc);
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterSortBy> sortByUniqueId() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uniqueId', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterSortBy> sortByUniqueIdDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uniqueId', Sort.desc);
     });
   }
 }
@@ -956,6 +1107,18 @@ extension RecipeQuerySortThenBy on QueryBuilder<Recipe, Recipe, QSortThenBy> {
       return query.addSortBy(r'recipeName', Sort.desc);
     });
   }
+
+  QueryBuilder<Recipe, Recipe, QAfterSortBy> thenByUniqueId() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uniqueId', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QAfterSortBy> thenByUniqueIdDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uniqueId', Sort.desc);
+    });
+  }
 }
 
 extension RecipeQueryWhereDistinct on QueryBuilder<Recipe, Recipe, QDistinct> {
@@ -984,6 +1147,13 @@ extension RecipeQueryWhereDistinct on QueryBuilder<Recipe, Recipe, QDistinct> {
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'recipeName', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<Recipe, Recipe, QDistinct> distinctByUniqueId(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'uniqueId', caseSensitive: caseSensitive);
     });
   }
 }
@@ -1023,6 +1193,12 @@ extension RecipeQueryProperty on QueryBuilder<Recipe, Recipe, QQueryProperty> {
   QueryBuilder<Recipe, String, QQueryOperations> nameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'recipeName');
+    });
+  }
+
+  QueryBuilder<Recipe, String, QQueryOperations> uniqueIdProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'uniqueId');
     });
   }
 }
