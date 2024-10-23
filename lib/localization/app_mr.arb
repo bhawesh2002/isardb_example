@@ -31,5 +31,21 @@
   "ingredients": "साहित्य",
   "@ingredients": {
     "description": "साहित्य"
+  },
+  "categories": "वर्ग",
+  "@categories": {
+    "description": "वर्ग"
+  },
+  "breakfast": "ब्रेकफास्ट",
+  "@breakfast": {
+    "description": "ब्रेकफास्ट"
+  },
+  "lunch": "लंच",
+  "@lunch": {
+    "description": "लंच"
+  },
+  "dinner": "डिनर",
+  "@dinner": {
+    "description": "डिनर"
   }
 }

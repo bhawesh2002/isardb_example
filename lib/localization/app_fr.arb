@@ -31,5 +31,21 @@
     "ingredients": "Ingrédients",
     "@ingredients": {
         "description": "La chaîne pour les ingrédients"
+    },
+    "categories": "Catégories",
+    "@categories": {
+        "description": "La chaîne pour les catégories"
+    },
+    "breakfast": "Petit déjeuner",
+    "@breakfast": {
+        "description": "La chaîne pour le petit déjeuner"
+    },
+    "lunch": "Déjeuner",
+    "@lunch": {
+        "description": "La chaîne pour le déjeuner"
+    },
+    "dinner": "Dîner",
+    "@dinner": {
+        "description": "La chaîne pour le dîner"
     }
 }

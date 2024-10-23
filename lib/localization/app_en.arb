@@ -31,5 +31,21 @@
   "ingredients": "Ingredients",
   "@ingredients": {
     "description": "The string for the Ingredients"
+  },
+  "categories": "Categories",
+  "@categories": {
+    "description": "The string for the Categories"
+  },
+  "breakfast": "Breakfast",
+  "@breakfast": {
+    "description": "The string for the Breakfast"
+  },
+  "lunch": "Lunch",
+  "@lunch": {
+    "description": "The string for the Lunch"
+  },
+  "dinner": "Dinner",
+  "@dinner": {
+    "description": "The string for the Dinner"
   }
 }
